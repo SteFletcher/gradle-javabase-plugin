@@ -7,16 +7,33 @@
  * user guide available at https://docs.gradle.org/2.14.1/userguide/tutorial_java_projects.html
  */
 
-apply plugin: 'java'
-apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
 
 repositories {
     jcenter()
 }
 
+configurations {
+    gradleRuntime
+}
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
     testCompile 'junit:junit:4.12'
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+        exclude module: 'groovy-all'
+    }
+}
+
+version = "0.1-SNAPSHOT"
+group = "com.stefletcher.gradle"
+
+
+test {
+    testLogging {
+        exceptionFormat "full"
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
 }
 

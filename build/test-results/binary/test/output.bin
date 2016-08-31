@@ -1,0 +1,31 @@
+hello world
+junit8579380278459881082
+:clean 
+UP-TO-DATE
+:compileJava 
+UP-TO-DATE
+:compileGroovy 
+UP-TO-DATE
+:processResources 
+UP-TO-DATE
+:classes 
+UP-TO-DATE
+:jar
+	:assemble
+:compileTestJava 
+UP-TO-DATE
+:compileTestGroovy 
+UP-TO-DATE
+:processTestResources 
+UP-TO-DATE
+:testClasses 
+UP-TO-DATE
+:test 
+UP-TO-DATE
+:check 
+UP-TO-DATE
+:build
+
+BUILD SUCCESSFUL
+
+Total time: 3.149 secs

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.stefletcher.gradle.JavaBasePluginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-08-31T10:52:35" hostname="166.sub-97-1-175.myvzw.com" time="4.413">
+  <properties/>
+  <testcase name="should apply plugin without error" classname="com.stefletcher.gradle.JavaBasePluginTest" time="4.413"/>
+  <system-out><![CDATA[hello world
+junit8579380278459881082
+:clean UP-TO-DATE
+:compileJava UP-TO-DATE
+:compileGroovy UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:jar
+:assemble
+:compileTestJava UP-TO-DATE
+:compileTestGroovy UP-TO-DATE
+:processTestResources UP-TO-DATE
+:testClasses UP-TO-DATE
+:test UP-TO-DATE
+:check UP-TO-DATE
+:build
+
+BUILD SUCCESSFUL
+
+Total time: 3.149 secs
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
