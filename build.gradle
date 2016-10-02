@@ -6,9 +6,22 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at https://docs.gradle.org/2.14.1/userguide/tutorial_java_projects.html
  */
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"
+    }
+}
+
+apply plugin: "org.sonarqube"
 
 apply plugin: 'groovy'
 apply plugin: 'java-gradle-plugin'
+apply plugin: 'org.sonarqube'
 
 repositories {
     jcenter()
@@ -20,6 +33,7 @@ configurations {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
+    compile "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"
     testCompile 'junit:junit:4.12'
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude module: 'groovy-all'
@@ -36,4 +50,3 @@ test {
         events "passed", "skipped", "failed", "standardOut", "standardError"
     }
 }
-
