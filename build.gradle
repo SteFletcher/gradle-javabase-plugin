@@ -25,6 +25,7 @@ apply plugin: 'java-gradle-plugin'
 apply plugin: 'org.sonarqube'
 apply plugin: 'maven-publish'
 apply plugin: "com.gradle.plugin-publish"
+apply plugin: "jacoco"
 
 repositories {
     jcenter()
