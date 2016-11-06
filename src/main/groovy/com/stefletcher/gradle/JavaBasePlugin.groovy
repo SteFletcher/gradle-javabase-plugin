@@ -25,7 +25,6 @@ class JavaBasePlugin implements Plugin<Project>{
             travisFile << "language: groovy\n" +
                     "\n" +
                     "jdk:\n" +
-                    "  - oraclejdk7\n" +
                     "  - oraclejdk8\n" +
                     "\n" +
                     "script:\n" +
