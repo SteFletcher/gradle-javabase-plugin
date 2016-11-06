@@ -52,7 +52,7 @@ dependencies {
     }
 }
 
-version = "1.0.0"
+version = "1.0.$System.env.TRAVIS_BUILD_NUMBER"
 group = "com.stefletcher.gradle"
 
 
@@ -76,7 +76,7 @@ pluginBundle {
     tags = ['base', 'quality', 'test', 'travis', 'integTest']
 
     plugins {
-        gitHookPlugin {
+        javaBasePlugin {
             id = 'com.stefletcher.gradle-javabase-plugin'
             displayName = 'Gradle plugin apply plugins and conventions to a code base.'
         }
