@@ -22,6 +22,7 @@ apply plugin: "org.sonarqube"
 apply plugin: 'groovy'
 apply plugin: 'java-gradle-plugin'
 apply plugin: 'org.sonarqube'
+apply plugin: 'maven-publish'
 
 repositories {
     jcenter()
@@ -34,7 +35,10 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.21'
     compile "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"
+    compile "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3"
     testCompile 'junit:junit:4.12'
+    testCompile('org.springframework.boot:spring-boot-starter-test:1.2.3.RELEASE')
+    testCompile('org.springframework.boot:spring-boot:1.2.5.RELEASE')
     testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude module: 'groovy-all'
     }
@@ -48,5 +52,19 @@ test {
     testLogging {
         exceptionFormat "full"
         events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+pluginBundle {
+    website = 'http://www.gradle.org/'
+    vcsUrl = 'https://github.com/gradle/gradle'
+    description = 'A base plugin to handle my development needs.'
+    tags = ['base', 'quality', 'test', 'travis', 'integTest']
+
+    plugins {
+        gitHookPlugin {
+            id = 'com.stefletcher.gradle-javabase-plugin'
+            displayName = 'Gradle plugin apply plugins and conventions to a code base.'
+        }
     }
 }
