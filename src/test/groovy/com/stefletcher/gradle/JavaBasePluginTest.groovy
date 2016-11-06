@@ -86,7 +86,7 @@ public class JavaBasePluginTest extends Specification{
                 .withDebug(true)
                 .forwardOutput()
                 .build()
-        File travisFile = new File(testProjectDir.root.getAbsolutePath()+'/travis.yml')
+        File travisFile = new File(testProjectDir.root.getAbsolutePath()+'/.travis.yml')
         then:
         travisFile.exists()
     }

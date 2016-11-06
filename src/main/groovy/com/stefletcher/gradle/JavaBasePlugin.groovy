@@ -20,7 +20,7 @@ class JavaBasePlugin implements Plugin<Project>{
         println project.name
 
 
-        def travisFile = new File(project.projectDir.absolutePath+'/travis.yml')
+        def travisFile = new File(project.projectDir.absolutePath+'/.travis.yml')
         if(!travisFile.exists()) {
             travisFile << "language: groovy\n" +
                     "\n" +

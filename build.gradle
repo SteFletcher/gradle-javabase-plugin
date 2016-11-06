@@ -13,6 +13,7 @@ buildscript {
         }
     }
     dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.5"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"
     }
 }
@@ -23,6 +24,7 @@ apply plugin: 'groovy'
 apply plugin: 'java-gradle-plugin'
 apply plugin: 'org.sonarqube'
 apply plugin: 'maven-publish'
+apply plugin: "com.gradle.plugin-publish"
 
 repositories {
     jcenter()
@@ -44,7 +46,7 @@ dependencies {
     }
 }
 
-version = "0.1-SNAPSHOT"
+version = "1.0.0"
 group = "com.stefletcher.gradle"
 
 
