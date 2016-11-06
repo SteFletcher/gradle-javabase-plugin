@@ -82,3 +82,6 @@ pluginBundle {
         }
     }
 }
+
+ext['gradle.publish.key'] = System.env.gradlePublishKey
+ext['gradle.publish.secret'] = System.env.gradlePublishSecret
