@@ -57,6 +57,12 @@ test {
     }
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+    }
+}
+
 pluginBundle {
     website = 'http://www.gradle.org/'
     vcsUrl = 'https://github.com/gradle/gradle'
