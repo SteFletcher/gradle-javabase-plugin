@@ -3,7 +3,6 @@
  */
 package com.stefletcher.gradle
 
-import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.GroovyPlugin
@@ -13,7 +12,6 @@ import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.kt3k.gradle.plugin.CoverallsPlugin
 import org.sonarqube.gradle.SonarQubePlugin
-import org.sonarqube.gradle.SonarQubeTask
 
 class JavaBasePlugin implements Plugin<Project>{
     @Override
