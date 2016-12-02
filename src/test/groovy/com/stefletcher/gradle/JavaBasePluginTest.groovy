@@ -1,6 +1,5 @@
 package com.stefletcher.gradle
 
-import org.gradle.internal.logging.StandardOutputCapture
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
 import org.gradle.testkit.runner.TaskOutcome

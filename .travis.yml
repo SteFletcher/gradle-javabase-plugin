@@ -1,10 +1,12 @@
 language: groovy
 
 jdk:
+  - oraclejdk7
   - oraclejdk8
 
 script:
   - ./gradlew clean build
+  - ./gradlew clean integTest
 
 before_install:
   - chmod +x gradlew

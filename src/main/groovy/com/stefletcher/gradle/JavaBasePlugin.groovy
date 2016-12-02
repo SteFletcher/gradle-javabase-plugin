@@ -3,6 +3,7 @@
  */
 package com.stefletcher.gradle
 
+import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.GroovyPlugin
@@ -40,22 +41,28 @@ class JavaBasePlugin implements Plugin<Project>{
         project.getPluginManager().apply(JavaPlugin.class)
         project.getPluginManager().apply(GroovyPlugin.class)
         project.getPluginManager().apply(JacocoPlugin.class)
-        project.getPluginManager().apply(SonarQubePlugin.class)
-        project.getPluginManager().apply(CoverallsPlugin.class)
+        if(JavaVersion.current() != JavaVersion.VERSION_1_6){
+            project.getPluginManager().apply(CoverallsPlugin.class)
+            project.getPluginManager().apply(SonarQubePlugin.class)
+            project.afterEvaluate {
+                project.tasks.withType(SonarQubeTask) {
+                    it.doLast {
+                        def group = it.project.group
+                        def sonarProjectName = it.properties.get("sonar.projectName")
+                        def sonarProjectkey = it.properties.get("sonar.projectKey")
+                        def sonarBranch = it.properties.get("sonar.branch")
+
+                    }
+                }
+            }
+        } else{
+            project.logger.lifecycle("SonarQube requires Java 1.7* to run, skipping setup...")
+            project.logger.lifecycle("Coveralls requires Java 1.7* to run, skipping setup...")
+        }
 
         this.setupTesting(project)
 
-        project.afterEvaluate {
-            project.tasks.withType(SonarQubeTask) {
-                it.doLast {
-                    def group = it.project.group
-                    def sonarProjectName = it.properties.get("sonar.projectName")
-                    def sonarProjectkey = it.properties.get("sonar.projectKey")
-                    def sonarBranch = it.properties.get("sonar.branch")
 
-                }
-            }
-        }
 
     }
 

@@ -4,6 +4,9 @@ import org.gradle.testkit.runner.GradleRunner
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
+import spock.lang.Unroll
+
+import static org.gradle.testkit.runner.TaskOutcome.SUCCESS
 
 /**
  * Created by stefletcher on 29/08/2016.
@@ -40,21 +43,26 @@ public class JavaBasePluginTest extends Specification{
             }
         '''
     }
-
-    def "should run sonarqube task without error"() {
-        given:
-            def a
+    @Unroll
+    def "gradle compatiblility tests"() {
         when:
-            def project = GradleRunner.create()
+            println "Building with version $gradleVersion"
+            def result = GradleRunner.create()
                     .withProjectDir(testProjectDir.root)
                     .withArguments('build')
                     .withPluginClasspath()
+                    .withGradleDistribution(versionToURI(gradleVersion))
                     .withDebug(true)
                     .forwardOutput()
                     .build()
-            a = 1
         then:
-            project.properties.get("sonar.projectKey") == ""
+            result.task(":build").outcome == SUCCESS
+        where:
+            gradleVersion << ['2.8', '2.9', '2.10','2.11','2.12', '2.13','2.14', '3.0', '3.1', '3.2', '3.2.1']
+    }
+
+    URI versionToURI(String version) {
+        "https://services.gradle.org/distributions/gradle-${version}-all.zip".toURI()
     }
 
 }
