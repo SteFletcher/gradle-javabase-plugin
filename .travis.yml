@@ -5,7 +5,7 @@ jdk:
 
 script:
   - ./gradlew clean build
-  - ./gradlew clean build sonarqube -Dsonar.login=$sonarqube_token -Dsonar.host.url=https://sonarqube.com
+  - ./gradlew clean build sonarqube -Dsonar.login=$sonarqube_token -Dsonar.url=https://sonarqube.com
 
 
 before_install:
