@@ -101,7 +101,7 @@ public class JavaBasePluginTest extends Specification{
                 .forwardOutput()
                 .build()
         then:
-        project.task(":integTest").getOutcome() == TaskOutcome.UP_TO_DATE
+        project.task(":integTest").getOutcome() == TaskOutcome.NO_SOURCE
     }
 
 }
